@@ -20,6 +20,7 @@ export default function Main() {
           placeholder="e.g. oregano"
           aria-label="Add ingredient"
           name="ingredient"
+          required
         />
         <button>Add ingredient</button>
       </form>
@@ -27,3 +28,5 @@ export default function Main() {
     </main>
   );
 }
+
+
