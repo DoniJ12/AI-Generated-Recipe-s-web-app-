@@ -1,6 +1,13 @@
+import React from "react"
+
 export default function (props) {
   const ingredientsListItems = props.ingredients.map((ingredient) => (
-    <li key={ingredient}>{ingredient}</li>
+    <div key={ingredient}>
+      <li>{ingredient}</li>
+      <button onClick={() => props.removeIngredient(ingredient)} className="remove-button">
+        Remove Ingredient
+      </button>
+    </div>
   ));
 
   return (

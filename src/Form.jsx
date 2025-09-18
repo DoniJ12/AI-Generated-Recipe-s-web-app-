@@ -18,6 +18,11 @@ export default function Main() {
     const newIngredient = formData.get("ingredient");
     setIngredients((prevIngredients) => [...prevIngredients, newIngredient]);
   }
+  
+  function handleRemove(ingredientToRemove) {
+    const newList = ingredients.filter(list => list != ingredientToRemove)
+    setIngredients(prevState => prevState = newList)
+  }
 
   async function getRecipe() {
     const recipeMarkdown = await getRecipeFromMistral(ingredients);
@@ -36,7 +41,7 @@ export default function Main() {
         <button>Add ingredient</button>
       </form>
       {ingredients.length > 0 && (
-        <RecipeList ingredients={ingredients} getRecipe={getRecipe} />
+        <RecipeList ingredients={ingredients} getRecipe={getRecipe} removeIngredient = {handleRemove}/>
       )}
       {recipe && <ClaudeRecipe recipe={recipe} />}
     </main>
