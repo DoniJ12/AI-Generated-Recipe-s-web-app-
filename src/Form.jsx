@@ -4,7 +4,13 @@ import RecipeList from "./components/RecipeList";
 import { getRecipeFromMistral } from "../ai";
 
 export default function Main() {
-  const [ingredients, setIngredients] = React.useState([]);
+  const [ingredients, setIngredients] = React.useState([
+    "Fillet Fish",
+    "Oil",
+    "All Spices",
+    "Onion",
+    "Tomato Paste"
+  ]);
 
   const [recipe, setRecipe] = React.useState(false);
 
@@ -32,7 +38,7 @@ export default function Main() {
       {ingredients.length > 0 && (
         <RecipeList ingredients={ingredients} getRecipe={getRecipe} />
       )}
-      {recipe && <ClaudeRecipe recipe={recipe}/>}
+      {recipe && <ClaudeRecipe recipe={recipe} />}
     </main>
   );
 }
