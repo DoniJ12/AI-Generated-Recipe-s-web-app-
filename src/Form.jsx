@@ -4,13 +4,7 @@ import RecipeList from "./components/RecipeList";
 import { getRecipeFromMistral } from "../ai";
 
 export default function Main() {
-  const [ingredients, setIngredients] = React.useState([
-    "Fillet Fish",
-    "Oil",
-    "All Spices",
-    "Onion",
-    "Tomato Paste"
-  ]);
+  const [ingredients, setIngredients] = React.useState([]);
 
   const [recipe, setRecipe] = React.useState(false);
 
