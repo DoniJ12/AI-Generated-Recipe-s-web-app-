@@ -8,6 +8,14 @@ export default function Main() {
 
   const [recipe, setRecipe] = React.useState(false);
 
+  const scroll = React.useRef(null)
+
+  React.useEffect(() => {
+    if (recipe && scroll) {
+      scroll.current.scrollIntoView({behavior: "smooth"})
+    }
+  }, [recipe])
+
   function handleSubmit(formData) {
     const newIngredient = formData.get("ingredient");
     setIngredients((prevIngredients) => [...prevIngredients, newIngredient]);
@@ -35,7 +43,7 @@ export default function Main() {
         <button>Add ingredient</button>
       </form>
       {ingredients.length > 0 && (
-        <RecipeList ingredients={ingredients} getRecipe={getRecipe} removeIngredient = {handleRemove}/>
+        <RecipeList ingredients={ingredients} getRecipe={getRecipe} removeIngredient = {handleRemove} ref = {scroll}/>
       )}
       {recipe && <ClaudeRecipe recipe={recipe} />}
     </main>
